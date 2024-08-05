@@ -265,3 +265,21 @@ const getData = () => {
 };
 
 window.onload = getData;
+
+const filterModal = document.getElementById('filterModal');
+const filterBtn = document.getElementById('filterBtn');
+const closeBtn = document.getElementsByClassName('close')[0];
+
+filterBtn.onclick = function() {
+    filterModal.style.display = 'block';
+};
+
+closeBtn.onclick = function() {
+    filterModal.style.display = 'none';
+};
+
+window.onclick = function(event) {
+    if (event.target === filterModal) {
+        filterModal.style.display = 'none';
+    }
+};
