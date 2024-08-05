@@ -196,8 +196,6 @@ const mockData = [
     }
   ];
 
-  
-  
 const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'short', day: 'numeric' };
     return new Date(dateString).toLocaleDateString(undefined, options);
@@ -205,20 +203,26 @@ const formatDate = (dateString) => {
 
 const applyFilters = (employee) => {
     const idFilter = document.getElementById('idFilter').value;
-    const ageFilter = document.getElementById('ageFilter').value;
+    const ageMinFilter = document.getElementById('ageMinFilter').value;
+    const ageMaxFilter = document.getElementById('ageMaxFilter').value;
     const roleFilter = document.getElementById('roleFilter').value.toLowerCase();
     const isActiveFilter = document.getElementById('isActiveFilter').value;
-    const salaryFilter = document.getElementById('salaryFilter').value;
+    const salaryMinFilter = document.getElementById('salaryMinFilter').value;
+    const salaryMaxFilter = document.getElementById('salaryMaxFilter').value;
+    const hireDateFilter = document.getElementById('hireDateFilter').value;
     const departmentFilter = document.getElementById('departmentFilter').value.toLowerCase();
     const projectsCompletedFilter = document.getElementById('projectsCompletedFilter').value;
     const accessLevelFilter = document.getElementById('accessLevelFilter').value.toLowerCase();
 
     return (
         (idFilter === '' || employee.id == idFilter) &&
-        (ageFilter === '' || employee.age == ageFilter) &&
+        (ageMinFilter === '' || employee.age >= ageMinFilter) &&
+        (ageMaxFilter === '' || employee.age <= ageMaxFilter) &&
         (roleFilter === '' || employee.role.toLowerCase().includes(roleFilter)) &&
         (isActiveFilter === '' || employee.isActive.toString() === isActiveFilter) &&
-        (salaryFilter === '' || employee.salary == salaryFilter) &&
+        (salaryMinFilter === '' || employee.salary >= salaryMinFilter) &&
+        (salaryMaxFilter === '' || employee.salary <= salaryMaxFilter) &&
+        (hireDateFilter === '' || new Date(employee.hireDate) > new Date(hireDateFilter)) &&
         (departmentFilter === '' || employee.department.toLowerCase().includes(departmentFilter)) &&
         (projectsCompletedFilter === '' || employee.projectsCompleted == projectsCompletedFilter) &&
         (accessLevelFilter === '' || employee.accessLevel.toLowerCase().includes(accessLevelFilter))
