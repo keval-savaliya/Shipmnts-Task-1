@@ -1,6 +1,7 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f4f4;
+    background: url('1.jpeg') no-repeat center center fixed;
+    background-size: cover;
     margin: 0;
     padding: 0;
     color: #333;
@@ -11,7 +12,7 @@ body {
     max-width: 1200px;
     margin: 30px auto;
     padding: 20px;
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.85); /* Slightly transparent white */
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -50,7 +51,7 @@ h1 {
 }
 
 .modal-content {
-    background-color: #fefefe;
+    background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
     margin: auto;
     border: 1px solid #888;
     width: 500px;
